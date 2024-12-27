@@ -1,8 +1,14 @@
 
+import BlogCard from "@/components/BlogCard"
+import Footer from "@/components/Footer"
+import Hero from "@/components/Hero"
+
 export default function Home() {
   return( 
   <>
-  <h1>{`Nimra's Blog`}</h1>
+  <Hero/>
+  <BlogCard/>
+  <Footer/>
   </>
   );
 }
