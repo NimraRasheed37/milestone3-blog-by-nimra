@@ -8,7 +8,7 @@ const ContactForm = () => {
   const [messageSent, setMessageSent] = useState(false);
 
   // Function to handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setMessageSent(true); // Display success message
     setTimeout(() => setMessageSent(false), 3000); // Hide message after 3 seconds

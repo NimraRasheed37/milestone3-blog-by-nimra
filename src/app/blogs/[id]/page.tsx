@@ -4,14 +4,15 @@ import Link from 'next/link';
 import { IoIosArrowBack } from 'react-icons/io';
 import CommentSection from '../../../components/Comments';
 import Footer from '@/components/Footer';
+import Image from 'next/image';
 
 // Correct type for BlogPostProps
 interface BlogPostProps {
-  params: { id: string }; // Ensure `params` matches dynamic route expectations
+  params: Promise<{ id: string }>; 
 }
 
-export default function BlogPost({ params }: BlogPostProps) {
-  const { id } = params;
+export default async function BlogPost({ params }: BlogPostProps) {
+  const { id } = await params;
 
   if (!id) {
     return notFound();
@@ -36,10 +37,12 @@ export default function BlogPost({ params }: BlogPostProps) {
 
         {/* Blog Image */}
         <div className="relative w-full h-64 lg:h-96">
-          <img
+          <Image
             src={blog.image}
             alt={blog.title}
-            className="w-full h-full object-cover rounded-lg"
+            layout="fill"
+            objectFit="cover"
+            className="rounded-lg"
           />
         </div>
 
@@ -68,4 +71,4 @@ export async function generateStaticParams() {
   return blogData.map((blog) => ({
     id: blog.id.toString(), // Ensure ID is a string
   }));
-}
+} 

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FaLinkedin, FaInstagram, FaBars, FaTimes, FaHome, FaInfoCircle, FaBlog } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaBars, FaTimes, FaHome, FaBlog } from 'react-icons/fa';
 import { useState } from 'react';
 
 export default function Header() {
